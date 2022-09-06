@@ -124,6 +124,18 @@ function elegirPersonaje() {
     alert(
       `tu personaje se llama ${personaje.nombre}\r\nEs un ${personaje.raza} ${personaje.tamaño}\r\n${personaje.fuerza}, ${personaje.carisma}\r\nSin olvidar que es ${personaje.agilidad}`
     );
+    const newNombre = document.createElement("h2");
+    newNombre.innerHTML = `${personaje.nombre}`;
+    newNombre.classList.add("card__nombre");
+    document.querySelector(".card").append(newNombre);
+    const newStats = document.createElement("p");
+    newStats.innerHTML = `<strong>raza:</strong> ${personaje3.raza}<br />
+    <strong>tamaño:</strong> ${personaje3.tamaño}<br />
+    <strong>fuerza:</strong> ${personaje3.fuerza}<br />
+    <strong>agilidad:</strong> ${personaje3.agilidad}<br />
+    <strong>carisma:</strong> ${personaje3.carisma}<br />`;
+    newStats.classList.add("card__stats");
+    document.querySelector(".card").append(newStats);
     if (personajes[2].raza == "perro") {
       introPerro();
     } else {
@@ -341,3 +353,15 @@ function terceraHabitacion() {
   alert("Y dos guardias enormes en la puerta");
   alert("Continuara...");
 }
+// const newCard = document.createElement("div");
+// newCard.innerHTML = `<h2></h2>
+// <img />
+// <p>
+//   <strong>raza:</strong><br />
+//   <strong>tamaño:</strong><br />
+//   <strong>fuerza:</strong><br />
+//   <strong>agilidad:</strong><br />
+//   <strong>carisma:</strong><br />
+// </p>`;
+// newCard.classList.add("card__personaje");
+// document.querySelector(".card").append(newCard);
