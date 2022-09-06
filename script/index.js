@@ -67,6 +67,15 @@ function elegirPersonaje() {
     alert(
       "Odin! el pastor aleman\r\nGrande y fuerte\r\nAlgo torpe\r\nSiempre un buen chico"
     );
+    document.querySelector(".card__name").innerHTML = `${personaje.nombre}`;
+    document.querySelector(".card__img").src = "../OdinFloki/imagenes/odin.png";
+    document.querySelector(
+      ".card__stats"
+    ).innerHTML = `<strong>raza:</strong> ${personaje1.raza}<br />
+    <strong>tamaño:</strong> ${personaje1.tamaño}<br />
+    <strong>fuerza:</strong> ${personaje1.fuerza}<br />
+    <strong>agilidad:</strong> ${personaje1.agilidad}<br />
+    <strong>carisma:</strong> ${personaje1.carisma}<br />`;
     introPerro();
     intro();
     primerHabitacionOdin();
@@ -77,6 +86,16 @@ function elegirPersonaje() {
     alert(
       "Floki! el gato naranja\r\nPequeño y no muy duro\r\nSe cree superior a los demas\r\nLo és"
     );
+    document.querySelector(".card__name").innerHTML = `${personaje.nombre}`;
+    document.querySelector(".card__img").src =
+      "../OdinFloki/imagenes/floki.png";
+    document.querySelector(
+      ".card__stats"
+    ).innerHTML = `<strong>raza:</strong> ${personaje2.raza}<br />
+    <strong>tamaño:</strong> ${personaje2.tamaño}<br />
+    <strong>fuerza:</strong> ${personaje2.fuerza}<br />
+    <strong>agilidad:</strong> ${personaje2.agilidad}<br />
+    <strong>carisma:</strong> ${personaje2.carisma}<br />`;
     introGato();
     intro();
     primerHabitacionFloki();
@@ -124,18 +143,74 @@ function elegirPersonaje() {
     alert(
       `tu personaje se llama ${personaje.nombre}\r\nEs un ${personaje.raza} ${personaje.tamaño}\r\n${personaje.fuerza}, ${personaje.carisma}\r\nSin olvidar que es ${personaje.agilidad}`
     );
-    const newNombre = document.createElement("h2");
-    newNombre.innerHTML = `${personaje.nombre}`;
-    newNombre.classList.add("card__nombre");
-    document.querySelector(".card").append(newNombre);
-    const newStats = document.createElement("p");
-    newStats.innerHTML = `<strong>raza:</strong> ${personaje3.raza}<br />
+    document.querySelector(".card__name").innerHTML = `${personaje.nombre}`;
+    function newImg() {
+      if (
+        personaje3.raza == "perro" &&
+        personaje3.tamaño == "grande" &&
+        personaje3.agilidad == "agil"
+      ) {
+        document.querySelector(".card__img").src =
+          "../OdinFloki/imagenes/perrograndeagil.png";
+      } else if (
+        personaje3.raza == "perro" &&
+        personaje3.tamaño == "grande" &&
+        personaje3.agilidad == "torpe"
+      ) {
+        document.querySelector(".card__img").src =
+          "../OdinFloki/imagenes/perrograndetorpe.png";
+      } else if (
+        personaje3.raza == "perro" &&
+        personaje3.tamaño == "pequeño" &&
+        personaje3.agilidad == "torpe"
+      ) {
+        document.querySelector(".card__img").src =
+          "../OdinFloki/imagenes/perrochicotorpe.png";
+      } else if (
+        personaje3.raza == "perro" &&
+        personaje3.tamaño == "pequeño" &&
+        personaje3.agilidad == "agil"
+      ) {
+        document.querySelector(".card__img").src =
+          "../OdinFloki/imagenes/perrochicoagil.png";
+      } else if (
+        personaje3.raza == "gato" &&
+        personaje3.tamaño == "grande" &&
+        personaje3.agilidad == "torpe"
+      ) {
+        document.querySelector(".card__img").src =
+          "../OdinFloki/imagenes/gatograndetorpe.png";
+      } else if (
+        personaje3.raza == "gato" &&
+        personaje3.tamaño == "grande" &&
+        personaje3.agilidad == "agil"
+      ) {
+        document.querySelector(".card__img").src =
+          "../OdinFloki/imagenes/gatograndeagil.png";
+      } else if (
+        personaje3.raza == "gato" &&
+        personaje3.tamaño == "pequeño" &&
+        personaje3.agilidad == "torpe"
+      ) {
+        document.querySelector(".card__img").src =
+          "../OdinFloki/imagenes/gatochicotorpe.png";
+      } else if (
+        personaje3.raza == "gato" &&
+        personaje3.tamaño == "pequeño" &&
+        personaje3.agilidad == "agil"
+      ) {
+        document.querySelector(".card__img").src =
+          "../OdinFloki/imagenes/gatochicoagil.png";
+      }
+    }
+    newImg();
+    document.querySelector(
+      ".card__stats"
+    ).innerHTML = `<strong>raza:</strong> ${personaje3.raza}<br />
     <strong>tamaño:</strong> ${personaje3.tamaño}<br />
     <strong>fuerza:</strong> ${personaje3.fuerza}<br />
     <strong>agilidad:</strong> ${personaje3.agilidad}<br />
     <strong>carisma:</strong> ${personaje3.carisma}<br />`;
-    newStats.classList.add("card__stats");
-    document.querySelector(".card").append(newStats);
     if (personajes[2].raza == "perro") {
       introPerro();
     } else {
