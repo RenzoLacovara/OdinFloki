@@ -48,16 +48,6 @@ const respuesta1 = "a";
 const respuesta2 = "b";
 const respuesta3 = "c";
 
-function Start() {
-  var comienzo = confirm("Quieres empezar el juego?");
-  if (comienzo === false) {
-    alert("Fue lindo mientras duro");
-    alert("Gracias por jugar!\r\nO bien gracias por no hacerlo(?");
-  } else {
-    elegirPersonaje();
-    console.log("Comenzamos...");
-  }
-}
 function elegirPersonaje() {
   let elegirPersonaje = prompt(
     "Elije tu personaje!\r\nA- Odin, el pastor aleman\r\nB- Floki, el gato naranja\r\nC- Tu propia mascota"

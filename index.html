@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/estilo.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/sapps-studio/symbiosis-css@v1.7/symbiosis.min.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/estilo.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,17 +32,134 @@
   <body>
     <header></header>
     <main>
-      <article class="card" data-aos="fade-up" data-aos-duration="3000">
+      <!-- Button trigger modal -->
+      <div
+        class="containerPrincipal"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        display="none"
+      >
+        <article class="card" style="display: none">
+          <h1 class="card-name">
+            <img class="card__img" />
+            <p class="card__stats"></p>
+          </h1>
+        </article>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Start
+        </button>
+      </div>
+      <!-- Modal -->
+      <div class="containerModal">
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                  Escape de la perrera
+                </h5>
+              </div>
+              <div class="modal-body">
+                <h2>Quieres empezar el juego?</h2>
+              </div>
+              <div class="modal-footer">
+                <button
+                  onclick="elegirPersonaje()"
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Obviamente
+                </button>
+                <button
+                  onclick="gameOver()"
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Paso de esto
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="nombreMascota"
+        aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel">
+                Crea tu Mascota
+              </h5>
+            </div>
+            <div class="modal-body">
+              <form>
+                <input type="text" id="name" name="nameMascota" />
+                <label for="nameMascota">Nombre</label>
+                <input type="text" id="raza" name="razaMascota" />
+                <label for="razaMascota">Es perro o gato?</label>
+                <input type="text" id="fuerza" name="fuerzaMascota" />
+                <label for="tamanoMascota">Es fuerte o debil?</label>
+                <input type="text" id="tamano" name="tamanoMascota" />
+                <label for="tamanoMascota">Es pequeño o grande?</label>
+                <input type="text" id="agilidad" name="agilMascota" />
+                <label for="agilMascota">Es agil o torpe?</label>
+                <input type="text" id="carisma" name="carismaMascota" />
+                <label for="carismaMascota"
+                  >es carismatico o con caracter?</label
+                >
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                onclick="crearMascota()"
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Crear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <article class="card" data-aos="fade-up" data-aos-duration="3000">
         <h1 class="card__name"></h1>
         <img class="card__img" />
         <p class="card__stats"></p>
-      </article>
+      </article> -->
     </main>
     <footer></footer>
-    <script src="./script/index.js"></script>
+    <script src="./script/index2.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
