@@ -27,9 +27,7 @@ const personaje2 = {
 let personajes = [personaje1, personaje2];
 
 function gameOver() {
-  document.querySelector(
-    ".containerPrincipal"
-  ).innerHTML = `<p>Fue lindo mientras duro<br>Gracias por Jugar!<br>O bien, gracias por no hacerlo(?</p>`;
+  document.querySelector("#cover").classList.add("visible");
 }
 
 function addNewPersonaje() {
@@ -52,77 +50,27 @@ function addNewPersonaje() {
   return new Personaje(nombre, raza, tamaño, fuerza, agilidad, carisma);
 }
 function elegirPersonaje() {
-  document.querySelector(".containerPrincipal").innerHTML = `     
-  <article class="card" data-aos="fade-up" data-aos-duration="3000">
-    <h2 class="card__name">ODIN</h2>
-    <img class="card__img" src="../OdinFloki/imagenes/odin.png" alt="odin"/>
-    <p class="card__stats"> Odin! el pastor aleman<br>Grande y fuerte<br>Algo torpe<br>Siempre un buen chico"</p>
-    <button
-    onclick="elegirOdin()"
-    type="button"
-    class="btn btn-primary">
-    Elegir
-    </button>
-  </article>
-  <article class="card" data-aos="fade-up" data-aos-duration="3000">
-    <h2 class="card__name">FLOKI</h2>
-    <img class="card__img" src="../OdinFloki/imagenes/floki.png" alt="floki"/>
-    <p class="card__stats">Floki! el gato naranja<br>Pequeño y no muy duro<br>Se cree superior a los demas<br>Lo és</p>
-    <button
-    onclick="elegirFloki()"
-    type="button"
-    class="btn btn-primary">
-    Elegir
-    </button>
-  </article>
-  <article class="card" data-aos="fade-up" data-aos-duration="3000">
-    <h2 class="card__name">TU MASCOTA</h2>
-    <img class="card__img" src="../OdinFloki/imagenes/pawico.png" />
-    <p class="card__stats">Puedes crear a tu peludo como personaje</p>
-    <button
-    onclick="crearMascota()"
-    type="button"
-    class="btn btn-primary"
-    data-bs-target="#nombreMascota" data-bs-toggle="modal">
-    Elegir
-    </button>
-  </article>
-  `;
+  document.querySelector("#cover").classList.remove("visible");
 }
-// function elegirOdin() {}
-// function elegirFloki() {}
+function showOdin() {
+  document.getElementById("img-personaje").src =
+    "../OdinFloki/imagenes/odin.png";
+}
+function oldImg() {
+  document.getElementById("img-personaje").src =
+    "../OdinFloki/imagenes/default.png";
+}
+function showFloki() {
+  document.getElementById("img-personaje").src =
+    "../OdinFloki/imagenes/floki.png";
+}
+function cancel() {
+  document.querySelector(".crearPersonaje").classList.add("hidden");
+  document.querySelector(".personajes").classList.remove("hidden");
+}
 function crearMascota() {
-  let nombre = document.querySelector("#name");
-  let raza = document.querySelector("#raza");
-  let tamaño = document.querySelector("#tamano");
-  let fuerza = document.querySelector("#fuerza");
-  let agilidad = document.querySelector("#agilidad");
-  let carisma = document.querySelector("#carisma");
-  //   document.querySelector(
-  //     ".containerPrincipal"
-  //   ).innerHTML = `tu personaje se llama ${crearMascota.nombre}\r\nEs un ${raza} ${tamaño}\r\n${fuerza}, ${carisma}\r\nSin olvidar que es ${agilidad}`;
-  new Personaje(nombre, raza, tamaño, fuerza, agilidad, carisma);
-  return console.log(personajes);
+  document.querySelector(".personajes").classList.add("hidden");
+  document.querySelector(".crearPersonaje").classList.remove("hidden");
 }
-
-// function mostrarMascota() {
-//   document.querySelector(
-//     ".containerPrincipal"
-//   ).innerHTML = `tu personaje se llama ${nombre}\r\nEs un ${raza} ${personaje.tamaño}\r\n${personaje.fuerza}, ${personaje.carisma}\r\nSin olvidar que es ${personaje.agilidad}`;
-// }
-// function nombreMascota() {}
-// function statRaza1() {}
-// function statRaza2() {}
-// function statTamano1() {}
-// function statTamano2() {}
-// function statFuerza1() {}
-// function statFuerza2() {}
-// function statAgil1() {}
-// function statAgil2() {}
-// function statCar1() {}
-// function statCar2() {}
-// function statFinal() {
-//   document.querySelector(
-//     ".card__stats"
-//   ).innerHTML = `tu personaje se llama ${personaje.nombre}\r\nEs un ${personaje.raza} ${personaje.tamaño}\r\n${personaje.fuerza}, ${personaje.carisma}\r\nSin olvidar que es ${personaje.agilidad}`;
-// }
+// function crearPersonaje() {}
+// document.querySelector('input[name="genderS"]:checked').value;
