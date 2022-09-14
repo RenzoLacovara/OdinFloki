@@ -14,13 +14,13 @@
   visibility: visible;
 }
 #cover {
-  width: 250px;
-  height: 400px;
+  width: 350px;
+  height: 500px;
   visibility: hidden;
 }
 .flip-book {
-  width: 250px;
-  height: 400px;
+  width: 350px;
+  height: 500px;
   position: relative;
   perspective: 1500px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,

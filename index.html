@@ -78,8 +78,7 @@
               <div class="personajes">
                 <article
                   class="card"
-                  data-aos="fade-up"
-                  data-aos-duration="3000"
+              
                   onmouseover="showOdin()"
                   onmouseout="oldImg()"
                 >
@@ -94,8 +93,7 @@
                 </article>
                 <article
                   class="card"
-                  data-aos="fade-up"
-                  data-aos-duration="3000"
+                  
                   onmouseover="showFloki()"
                   onmouseout="oldImg()"
                 >
@@ -110,20 +108,18 @@
                 </article>
                 <article
                   class="card"
-                  data-aos="fade-up"
-                  data-aos-duration="3000"
+                 
                 >
                   <h3 class="card__name">TU MASCOTA</h3>
                   <p class="card__stats">
                     Puedes crear a tu peludo como personaje
                   </p>
                   <button
-                    onmouseenter="showMascota()"
                     onclick="crearMascota()"
                     type="button"
                     class="btn"
                     data-bs-target="#nombreMascota"
-                    data-bs-toggle="modal"
+
                   >
                     Elegir
                   </button>
@@ -216,9 +212,8 @@
                 </div>
               </fieldset>
               <button type="button" id="cancel" name="cancel" onclick="cancel()">Volver</button>
-              <a href="javascript: crearPersonaje()">Crear</a>
               </div>
-              <label for="c2" class="next-btn">Adelante</label>
+              <label for="c2" id="create" onclick="crear()" class="next-btn">Crear</label>
             </div>
           </div>
           <!-- pagina 3 -->
@@ -227,7 +222,7 @@
               <img src="./imagenes/odin.png" alt="" />
               <label for="c3" class="back-btn">Atras</label>
             </div>
-            <div class="front">
+            <div class="front" id="presentacion">
               <h2>Pagina 3</h2>
               <label for="c3" class="next-btn">Adelante</label>
             </div>

@@ -5,7 +5,6 @@ class Personaje {
     this.tamaño = tamaño;
     this.fuerza = fuerza;
     this.agilidad = agilidad;
-    this.carisma = carisma;
   }
 }
 const personaje1 = {
@@ -14,7 +13,6 @@ const personaje1 = {
   tamaño: "grande",
   fuerza: "fuerte",
   agilidad: "torpe",
-  carisma: "carismatico",
 };
 const personaje2 = {
   nombre: "Floki",
@@ -22,7 +20,6 @@ const personaje2 = {
   tamaño: "pequeño",
   fuerza: "debil",
   agilidad: "agil",
-  carisma: "con caracter",
 };
 let personajes = [personaje1, personaje2];
 
@@ -51,6 +48,7 @@ function addNewPersonaje() {
 }
 function elegirPersonaje() {
   document.querySelector("#cover").classList.remove("visible");
+  document.getElementById("create").classList.add("hidden");
 }
 function showOdin() {
   document.getElementById("img-personaje").src =
@@ -64,13 +62,32 @@ function showFloki() {
   document.getElementById("img-personaje").src =
     "../OdinFloki/imagenes/floki.png";
 }
-function cancel() {
-  document.querySelector(".crearPersonaje").classList.add("hidden");
-  document.querySelector(".personajes").classList.remove("hidden");
-}
 function crearMascota() {
   document.querySelector(".personajes").classList.add("hidden");
   document.querySelector(".crearPersonaje").classList.remove("hidden");
+  document.getElementById("create").classList.remove("hidden");
 }
-// function crearPersonaje() {}
-// document.querySelector('input[name="genderS"]:checked').value;
+function cancel() {
+  document.querySelector(".crearPersonaje").classList.add("hidden");
+  document.querySelector(".personajes").classList.remove("hidden");
+  document.getElementById("create").classList.add("hidden");
+}
+
+function crearPersonaje() {
+  let nombre = document.querySelector("#nombre").value;
+  let raza = document.querySelector('input[name="raza"]:checked').value;
+  let tamaño = document.querySelector('input[name="tamaño"]:checked').value;
+  let fuerza = document.querySelector('input[name="fuerza"]:checked').value;
+  let agilidad = document.querySelector('input[name="agilidad"]:checked').value;
+  return new Personaje(nombre, raza, tamaño, fuerza, agilidad);
+}
+
+function crear() {
+  const personaje3 = crearPersonaje();
+  let personaje = personaje3;
+  personajes.push(personaje);
+  console.log(personajes);
+  alert(
+    `tu personaje se llama ${personaje.nombre}\r\nEs un ${personaje.raza} ${personaje.tamaño}\r\n${personaje.fuerza}\r\nSin olvidar que es ${personaje.agilidad}`
+  );
+}
