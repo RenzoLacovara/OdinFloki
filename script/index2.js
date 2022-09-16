@@ -26,51 +26,36 @@ let personajes = [personaje1, personaje2];
 function gameOver() {
   document.querySelector("#cover").classList.add("visible");
 }
-
-function addNewPersonaje() {
-  let nombre = prompt("cual es su nombre?");
-  let raza = prompt(
-    "Que animal es?\r\nA) Descendiente de Lobos\r\nB) Descendiente de Leones"
-  ).toLowerCase();
-  let tamaño = prompt(
-    "Cual es su tamaño?\r\nA) Grande\r\nB) Pequeño"
-  ).toLowerCase();
-  let fuerza = prompt(
-    "Que tan fuerte es?\r\nA) Una bestia\r\nB) No mata una mosca"
-  ).toLowerCase();
-  let agilidad = prompt(
-    "Que tan agil es?\r\nA) Todo un deportista\r\nB) Se la pasa durmiendo"
-  ).toLowerCase();
-  let carisma = prompt(
-    "Es simpatico?\r\nA) Ama a todo el mundo\r\nB) No lo podes ni mirar"
-  ).toLowerCase();
-  return new Personaje(nombre, raza, tamaño, fuerza, agilidad, carisma);
-}
 function elegirPersonaje() {
   document.querySelector("#cover").classList.remove("visible");
   document.getElementById("create").classList.add("hidden");
 }
 function showOdin() {
   document.getElementById("img-personaje").src =
-    "../OdinFloki/imagenes/odin.png";
+    "../OdinFloki/imagenes/odin2.png";
 }
 function oldImg() {
-  document.getElementById("img-personaje").src =
-    "../OdinFloki/imagenes/default.png";
+  document.getElementById("img-personaje").src = "";
 }
 function showFloki() {
   document.getElementById("img-personaje").src =
-    "../OdinFloki/imagenes/floki.png";
+    "../OdinFloki/imagenes/floki2.png";
+}
+function showMascota() {
+  document.getElementById("img-personaje").src =
+    "../OdinFloki/imagenes/mascota.png";
 }
 function crearMascota() {
   document.querySelector(".personajes").classList.add("hidden");
   document.querySelector(".crearPersonaje").classList.remove("hidden");
   document.getElementById("create").classList.remove("hidden");
+  document.querySelector(".imgmascota").classList.remove("hidden");
 }
 function cancel() {
   document.querySelector(".crearPersonaje").classList.add("hidden");
   document.querySelector(".personajes").classList.remove("hidden");
   document.getElementById("create").classList.add("hidden");
+  document.querySelector(".imgmascota").classList.add("hidden");
 }
 
 function crearPersonaje() {
@@ -87,7 +72,90 @@ function crear() {
   let personaje = personaje3;
   personajes.push(personaje);
   console.log(personajes);
-  alert(
-    `tu personaje se llama ${personaje.nombre}\r\nEs un ${personaje.raza} ${personaje.tamaño}\r\n${personaje.fuerza}\r\nSin olvidar que es ${personaje.agilidad}`
+  Array.from(document.querySelectorAll(".imgmascota")).forEach((el) =>
+    el.classList.remove("hidden")
   );
+  document.getElementById("next").classList.remove("hidden");
+  function elegirMascota() {
+    let personaje = personaje3;
+    const miMascota = document.createElement("p");
+    miMascota.innerHTML = `tu personaje se llama ${personaje.nombre}<br>Es un ${personaje.raza} ${personaje.tamaño}<br>${personaje.fuerza}<br>Sin olvidar que es ${personaje.agilidad}`;
+    document.querySelector("#presenta").append(miMascota);
+    document.querySelector(".personajes").classList.add("hidden");
+    document.querySelector("#hab1").classList.remove("hidden");
+    document.getElementById("next").classList.remove("hidden");
+    document.querySelector(".crearPersonaje").classList.add("hidden");
+    document.querySelector("#create").classList.add("hidden");
+    Array.from(document.querySelectorAll(".imgmascota")).forEach((el) =>
+      el.classList.remove("hidden")
+    );
+    console.log(personaje);
+
+    if (personaje.raza === "perro") {
+      introPerro();
+    } else {
+      introGato();
+    }
+  }
+  elegirMascota();
+}
+function elegirOdin() {
+  let personaje = personaje1;
+  document.querySelector(".personajes").classList.add("hidden");
+  document.querySelector("#hab1").classList.remove("hidden");
+  document.getElementById("next").classList.remove("hidden");
+  Array.from(document.querySelectorAll(".imgodin")).forEach((el) =>
+    el.classList.remove("hidden")
+  );
+  console.log(personaje);
+  introPerro();
+}
+function elegirFloki() {
+  let personaje = personaje2;
+  document.querySelector(".personajes").classList.add("hidden");
+  document.querySelector("#hab1").classList.remove("hidden");
+  document.getElementById("next").classList.remove("hidden");
+  Array.from(document.querySelectorAll(".imgfloki")).forEach((el) =>
+    el.classList.remove("hidden")
+  );
+  console.log(personaje);
+  introGato();
+}
+function introPerro() {
+  const introPerro = document.createElement("p");
+  introPerro.innerHTML =
+    "<p>Te encontrabas en el patio cuando una ardilla capto tu atencion<br>Sentiste en su rostro un gesto burlon, no pudiste contenerte<br>Tuviste que perseguirla aunque eso signifique saltar la reja</p>";
+  document.querySelector("#hab1").append(introPerro);
+}
+function introGato() {
+  const introGato = document.createElement("p");
+  introGato.innerHTML =
+    "<p>Unos niños, se encontraban tirando piedras a las palomas cuando se percataron de tu presencia<br>Tu solo estabas tomando sol en la puerta de la cochera cuando el primer disparo pico cerca<br>Fue puramente instinto salir huyendo aunque signifique saltar la reja</p>";
+  document.querySelector("#hab1").append(introGato);
+}
+function jaulaNo() {
+  const jaulaNo = document.createElement("p");
+  jaulaNo.innerHTML =
+    "Supongo que esta jaula no esta tan mal, no?<br><br><br><br>'Piensas quedarte mucho rato aqui?'";
+  document.querySelector("#jaula").append(jaulaNo);
+  document.querySelector(".btn-no").classList.add("hidden");
+}
+function jaulaSi() {
+  document.querySelector("#jaula").innerHTML =
+    "Empujas con el hocico la puerta de la jaula<br>Al fin y al cabo no tienes pulgares<br>Que oportuno que este abierto<br>Para nada sospechoso<br>Sientes un escalofrio";
+
+  document.querySelector(".btn-no").classList.add("hidden");
+  document.querySelector(".btn-si").classList.add("hidden");
+  document.querySelector("#cont1").classList.remove("hidden");
+}
+function primerHabitacion() {
+  document.querySelector("#cont1").classList.add("hidden");
+  document.querySelector(".pag1").classList.add("hidden");
+  document.querySelector(".primerHabitacion").classList.remove("hidden");
+  document.querySelector("#cont2").classList.remove("hidden");
+}
+function primerDecision() {
+  document.querySelector(".primerHabitacion").classList.add("hidden");
+  document.querySelector("#cont2").classList.add("hidden");
+  document.querySelector("#deci1").classList.remove("hidden");
 }

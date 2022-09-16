@@ -49,7 +49,11 @@
           <!-- pagina 1 -->
           <div class="flip" id="p1">
             <div class="back">
-              <img src="./imagenes/default.png" id="img-personaje" alt="" />
+              <img src="" id="img-personaje" alt="" />
+              <img src="" class="img-personaje"alt="" />
+              <img src="./imagenes/odin2.png" class="hidden imgodin">
+              <img src="./imagenes/floki2.png" class="hidden imgfloki">
+              <img src="./imagenes/mascota.png" class="hidden imgmascota">
               <label for="c1" class="back-btn">Atras</label>
             </div>
             <div class="front">
@@ -71,7 +75,12 @@
           <!-- pagina 2 -->
           <div class="flip" id="p2">
             <div class="back">
-              <img src="./imagenes/default.png" alt="" />
+              <img src="" class="img-personaje"alt="" />
+              <img src="" id="img-personaje" alt="" />
+              <img src="" class="img-personaje"alt="" />
+              <img src="./imagenes/odin2.png" class="hidden imgodin">
+              <img src="./imagenes/floki2.png" class="hidden imgfloki">
+              <img src="./imagenes/mascota.png" class="hidden imgmascota">
               <label for="c2" class="back-btn">Atras</label>
             </div>
             <div class="front">
@@ -82,7 +91,7 @@
                   onmouseover="showOdin()"
                   onmouseout="oldImg()"
                 >
-                  <h3 class="card__name">ODIN</h3>
+                  <h4 class="card__name">ODIN</h4>
                   <p class="card__stats">
                     Odin! el pastor aleman<br />Grande y fuerte<br />Algo
                     torpe<br />Siempre un buen chico
@@ -97,7 +106,7 @@
                   onmouseover="showFloki()"
                   onmouseout="oldImg()"
                 >
-                  <h3 class="card__name">FLOKI</h3>
+                  <h4 class="card__name">FLOKI</h4>
                   <p class="card__stats">
                     Floki! el gato naranja<br />Pequeño y no muy duro<br />Se
                     cree superior a los demas<br />Lo és
@@ -108,9 +117,10 @@
                 </article>
                 <article
                   class="card"
-                 
+                  onmouseover="showMascota()"
+                  onmouseout="oldImg()"
                 >
-                  <h3 class="card__name">TU MASCOTA</h3>
+                  <h4 class="card__name">TU MASCOTA</h4>
                   <p class="card__stats">
                     Puedes crear a tu peludo como personaje
                   </p>
@@ -118,13 +128,20 @@
                     onclick="crearMascota()"
                     type="button"
                     class="btn"
-                    data-bs-target="#nombreMascota"
 
                   >
                     Elegir
                   </button>
                 </article>
               </div>
+              <div id="presenta"></div>
+              <div id="hab1" class="hidden">
+               
+                <p>"Te despiertas en una jaula bastante oxidada.<br>Una tenue luz se filtra por los barrotes de una ventana.<br>Parece que atardece"</p>
+                <br>
+                <p>"Como llegaste aqui?"</p>
+                <br>
+                </div>
               <div class="crearPersonaje hidden">
                 <fieldset>
                   <h5>Cual es su nombre?</h5>
@@ -211,20 +228,35 @@
                   /><label for="agilidad">Se la pasa durmiendo</label>
                 </div>
               </fieldset>
+            
               <button type="button" id="cancel" name="cancel" onclick="cancel()">Volver</button>
               </div>
-              <label for="c2" id="create" onclick="crear()" class="next-btn">Crear</label>
+              <button type="button" id="create" class="hidden" onclick="crear()">Crear</button>
+              <label for="c2" class="next-btn hidden" id="next">Continuar</label>
             </div>
           </div>
           <!-- pagina 3 -->
           <div class="flip" id="p3">
             <div class="back">
-              <img src="./imagenes/odin.png" alt="" />
               <label for="c3" class="back-btn">Atras</label>
             </div>
-            <div class="front" id="presentacion">
-              <h2>Pagina 3</h2>
-              <label for="c3" class="next-btn">Adelante</label>
+            <div class="front">
+              
+              <div class="pag1">
+              <p>"Parece que no han cerrado bien tu jaula<br>Decides salir?"</p>
+              <div id="jaula"></div>
+              <button class="btn-no" onclick="jaulaNo();">Mejor no</button>
+              <button class="btn-si" onclick="jaulaSi();">Mejor si</button>
+            </div>
+            <div class="primerHabitacion hidden">
+              <p>"Una leve brisa hace que vislumbres entre los caniles un pequeño agujero en la pared<br>Parece que lleva a otra habitacion<br>El espacio para pasar es bastante ajustado"<br><br><br>
+             
+                "Del otro lado de la habitacion hay una puerta abierta<br>Al final de un pasillo lleno de caniles con perros<br>No parecen muy amigables"</div>
+                <div class="hidden" id="deci1">
+                  <p>"Hacia donde te diriges?</p>
+                </div>
+              <button class="continuar1 hidden" id="cont1"onclick="primerHabitacion()">Continuar</button>
+              <button class="continuar2 hidden" id="cont2"onclick="primerDecision()">Continuar</button>
             </div>
           </div>
         </div>
